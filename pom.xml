@@ -12,6 +12,7 @@
         <module>web-service</module>
         <module>file-service</module>
         <module>file-core</module>
+        <module>common</module>
     </modules>
 
 
