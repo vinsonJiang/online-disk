@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapperLocations: classpath:mappers/*Mapper.xml
+  typeAliasesPackage: com.vinson.**.bean
+
+#配置日志
+logging:
+  #配置日志文件路径
+  path: F:\log
+  level:
+    io.vinson: debug #不同目录下的日志可配置不同级别
+    org.springfromework.web: info
+    org.apache.hadoop: error

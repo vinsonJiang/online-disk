@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请输入分享密码</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="padding-top: 75px;">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <!--<div class="container-fluid">-->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="logo" style="margin-right:20px;margin-left:10px;">
+                <h1 style="margin: 0px;">
+                    <!--<img src="/Content/Assert/img/logo.png" style="width:30px;">-->
+                    <a href="" style="font-size: 24px; margin-bottom: 30px;">网盘系统</a>
+                </h1>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!-- ngRepeat: menu in menus -->
+                <li class="active" id="Index"><a href="#">分享</a></li><!-- end ngRepeat: menu in menus -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 150px;">
+    <div class="row">
+        <div class="col-lg-4">
+        </div><!-- /.col-lg-6 -->
+        <div class="col-lg-4">
+            <label>请输入分享提取码：</label>
+            <div class="input-group">
+                <input type="text" id="password" class="form-control" placeholder="">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="submit()">提取</button>
+                </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        <div class="col-lg-4">
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    var pathname = window.location.pathname;
+    path = pathname.substring(pathname.lastIndexOf("/") + 1, pathname.length);
+
+    function submit() {
+        var password = $("#password").val();
+        if(password == null || password.trim().length == 0) {
+            alert("请输入密码");
+        }
+        $.ajax({
+            url: "/share/input_password",
+            data: { code: path, password: password },
+            sync: true,
+            type: "post",
+            success: function (data) {
+                if(data.code === 0) {
+                    window.location.reload();
+                } else {
+                    alert(data.msg);
+                    $("#password").val('');
+                }
+            }, error: function () {
+            }
+        })
+    }
+
+</script>
+</body>
+</html>
