@@ -4,7 +4,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.HttpRequest;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -13,7 +14,7 @@ import org.apache.log4j.Logger;
 
 
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
-    private final Logger logger = Logger.getLogger(NettyServerHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(NettyServerHandler.class);
 
     private ByteBuf buf;
     @Override
