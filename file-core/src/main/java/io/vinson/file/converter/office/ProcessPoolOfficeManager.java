@@ -2,6 +2,7 @@ package io.vinson.file.converter.office;
 
 import io.vinson.file.converter.exception.OfficeException;
 import io.vinson.file.converter.process.ProcessManager;
+import io.vinson.file.converter.task.OfficeTask;
 
 import java.io.File;
 import java.util.concurrent.ArrayBlockingQueue;

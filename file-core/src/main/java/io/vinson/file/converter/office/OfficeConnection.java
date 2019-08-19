@@ -3,6 +3,7 @@ package io.vinson.file.converter.office;
 import com.sun.star.lang.XComponent;
 import com.sun.star.lang.XMultiComponentFactory;
 import com.sun.star.uno.XComponentContext;
+import io.vinson.file.converter.exception.OfficeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class OfficeConnection {
 
     private XComponent bridgeComponent;
     private XComponentContext componentContext;
+    private XMultiComponentFactory serviceManager;
 
     private final UnoUrl unoUrl;
 
@@ -43,6 +45,13 @@ public class OfficeConnection {
         return connected;
     }
 
+    public Object getService(String serviceName) {
+        try {
+            return serviceManager.createInstanceWithContext(serviceName, componentContext);
+        } catch (Exception exception) {
+            throw new OfficeException(String.format("failed to obtain service '%s'", serviceName), exception);
+        }
+    }
 
 
 }

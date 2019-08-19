@@ -6,7 +6,7 @@ import io.vinson.file.converter.exception.OfficeException;
 
 import static io.vinson.file.converter.util.OfficeUtils.cast;
 
-class OfficeDocumentUtils {
+public class OfficeDocumentUtils {
 
     private OfficeDocumentUtils() {
         throw new AssertionError("utility class must not be instantiated");

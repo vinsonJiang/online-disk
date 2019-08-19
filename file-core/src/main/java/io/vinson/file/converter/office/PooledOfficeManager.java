@@ -1,6 +1,7 @@
 package io.vinson.file.converter.office;
 
 import io.vinson.file.converter.exception.OfficeException;
+import io.vinson.file.converter.task.OfficeTask;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
