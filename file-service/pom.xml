@@ -18,7 +18,7 @@
         <ufile.sdk.verison>1.0-SNAPSHOT</ufile.sdk.verison>
         <logging.path>${basedir}/target/classes/logs</logging.path>
         <appName>file-service</appName>
-        <netty.version>4.1.23.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
         <log4j.version>2.6.2</log4j.version>
         <spring.version>5.0.8.RELEASE</spring.version>
     </properties>
