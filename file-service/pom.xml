@@ -20,7 +20,7 @@
         <appName>file-service</appName>
         <netty.version>4.1.23.Final</netty.version>
         <log4j.version>2.6.2</log4j.version>
-        <spring.version>5.0.8.RELEASE</spring.version>
+        <spring.version>5.3.19</spring.version>
     </properties>
     <dependencies>
         <dependency>
